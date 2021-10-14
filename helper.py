@@ -142,7 +142,7 @@ def substitute_ascii_equivalents(text_unicode):
 def munge_tag(tag):
     tag = substitute_ascii_equivalents(tag)
     tag = tag.lower().strip()
-    tag = re.sub(r'[^a-zA-Z0-9\- ]', '', tag)
+    tag = re.sub(r'[^a-zA-Z0-9\- ]', '', tag).replace(' ', '-')
     tag = _munge_to_length(tag, 2, 100)
     return tag
 

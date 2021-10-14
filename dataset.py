@@ -20,6 +20,16 @@ class Dataset(dict):
         else:
             self['name'] = munge_title_to_name(self['title'])
 
+        # a bug in the Inventory requires these fields not empty
+        self['bureau_code'] = "_placeholder_"
+        self['contact_email'] = "_placeholder_"
+        self['contact_name'] = "_placeholder_"
+        self['modified'] = "_placeholder_"
+        self['program_code'] =  "_placeholder_"
+        self['public_access_level'] = "_placeholder_"
+        self['publisher'] = "_placeholder_"
+        self['unique_id'] = "_placeholder_"
+
         json_dataset = json.dumps(self)
         json_dataset = urllib.quote(json_dataset)
 
