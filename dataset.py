@@ -20,7 +20,11 @@ class Dataset(dict):
         else:
             self['name'] = munge_title_to_name(self['title'])
 
-        # a bug in the Inventory requires these fields not empty
+        # Update:
+        # These fields are required now by /api/action/package_create
+        # So non-empty placeholder values are given now, and later proper
+        # values are generated from map_dataset to update dataset.
+        # TODO: get proper values from very begining during creation.
         self['bureau_code'] = "_placeholder_"
         self['contact_email'] = "_placeholder_"
         self['contact_name'] = "_placeholder_"
